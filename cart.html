@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - ShopEase</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e9f7ef;
+        }
+        footer {
+            background-color: rgb(3, 117, 123);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Shopping Cart</h2>
+        <p>Search for an item</p>
+        <input type="text" class="form-control" id="search-input" placeholder="Enter product name">
+        <button class="btn btn-success mt-2" id="search-button" style="background-color: rgb(3,117,123);">Check Availability</button>
+
+        <h3 class="mt-4">Items in your cart:</h3>
+        <b><ul id="cart-items"></ul></b>
+        
+        <h4 id="total-amount" class="mt-4">Total Amount: $0</h4>
+        
+        <button class="btn btn-primary mt-2" id="proceed-button" style="background-color: rgb(3,117,123);">Proceed to Pay</button>
+
+        <!-- Card Details Modal -->
+        <div class="modal" id="cardDetailsModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Enter Card Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="payment-form">
+                            <div class="form-group">
+                                <label for="card-number">Card Number</label>
+                                <input type="text" class="form-control" id="card-number" placeholder="Enter card number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-expiry">Expiry Date (MM/YYYY)</label>
+                                <input type="text" class="form-control" id="card-expiry" placeholder="MM/YYYY" required pattern="^(0[1-9]|1[0-2])\/\d{4}$" title="Format: MM/YYYY" style="text-align: center;">
+                            </div>
+                            <div class="form-group">
+                                <label for="card-cvc">CVC</label>
+                                <input type="password" class="form-control" id="card-cvc" placeholder="Enter CVC" required>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="submit-payment" style="background-color: rgb(3,117,123);">Submit Payment</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the cart items from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Find the cart items list and total amount display
+            let cartItemsList = document.getElementById('cart-items');
+            let totalAmountDisplay = document.getElementById('total-amount');
+
+            // Function to display cart items and calculate total amount
+            function displayCartItems(items) {
+                if (cartItemsList) {
+                    cartItemsList.innerHTML = ''; // Clear previous items
+                    let total = 0;
+                    items.forEach(item => {
+                        let listItem = document.createElement('li');
+                        listItem.textContent = `${item.productName} - $${item.price}`;
+                        cartItemsList.appendChild(listItem);
+                        total += item.price; // Calculate total
+                    });
+                    totalAmountDisplay.textContent = `Total Amount: $${total}`; // Update total display
+                }
+            }
+
+            // Display all cart items initially
+            displayCartItems(cart);
+
+            // Add event listener to the search button
+            document.getElementById('search-button').addEventListener('click', function() {
+                let searchTerm = document.getElementById('search-input').value.toLowerCase();
+                let filteredItems = cart.filter(item => item.productName.toLowerCase().includes(searchTerm));
+                displayCartItems(filteredItems);
+            });
+
+            // Proceed to Pay button functionality
+            document.getElementById('proceed-button').addEventListener('click', function() {
+                $('#cardDetailsModal').modal('show'); // Show card details modal
+            });
+
+            // Submit payment and redirect to thankyou.html
+            document.getElementById('submit-payment').addEventListener('click', function() {
+                // You can add payment processing logic here
+
+                // Redirect to thankyou.html after submitting payment
+                window.location.href = 'thankyou.html';
+            });
+        });
+    </script>
+
+    <footer class="text-center py-3" style="margin-top: 500px;">
+        <p>&copy; 2024 ShopEase. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

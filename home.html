@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase - Your Favorite Online Store</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f4f9;
+        }
+        .navbar {
+            background-color: rgb(3, 117, 123);
+        }
+        .navbar a {
+            color: white !important;
+        }
+        footer {
+            background-color: rgb(3, 117, 123);
+            color: white;
+        }
+        .product-card {
+            margin-bottom: 20px;
+        }
+        .alert {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1050; /* Ensure it appears above other content */
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="index.html">ShopEase</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html">Cart</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="container mt-4 text-center">
+        <h1>Welcome to ShopEase!</h1>
+        <p>Your one-stop destination for the best products.</p>
+    </header>
+
+    <!-- Product Section -->
+    <section class="container mt-4">
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-md-4 product-card">
+                <div class="card">
+                    <img src="dress1.jpeg" class="card-img-top" alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Blazers</h5>
+                        <p class="card-text">High-quality product. Black colour</p>
+                        <button class="btn btn-primary" onclick="addToCart('Blazers', 800)" style="background-color: rgb(3, 117, 123); border: rgb(3, 117, 123); color: #eef5f9;">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-md-4 product-card">
+                <div class="card">
+                    <img src="dress2.jpeg" class="card-img-top" alt="Product 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Long Skirt</h5>
+                        <p class="card-text">Grey colour polyester long skirt</p>
+                        <button class="btn btn-primary" onclick="addToCart('Long Skirt', 400)" style="background-color: rgb(3, 117, 123); border: rgb(3, 117, 123); color: #eef5f9;">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-md-4 product-card">
+                <div class="card">
+                    <img src="dress3.jpeg" class="card-img-top" alt="Product 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Frock</h5>
+                        <p class="card-text">Printed short frock</p>
+                        <button class="btn btn-primary" onclick="addToCart('Frock', 500)" style="background-color: rgb(3, 117, 123); border: rgb(3, 117, 123); color: #eef5f9;">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloadable Document Section -->
+    <section class="container download-section text-center">
+        <h2>Download Our Product Catalog</h2>
+        <p>For more details about our products, download our product catalog in PDF format.</p>
+        <a href="product_catalogue.html" class="btn" style="background-color: rgb(3, 117, 123); border: rgb(3, 117, 123); color: #eef5f9;" download>Download Product Catalog</a>
+    </section>
+
+    <!-- Product Review Video Section -->
+    <section class="container mt-4">
+        <h2>Product Review</h2>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Q9UhZ_bVFQo?si=AkyzD9TpnkE1yjbH"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Alert Message -->
+    <div class="alert alert-success alert-dismissible fade show" role="alert" id="itemAddedAlert">
+        <strong>Success!</strong> Item added to the cart.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <footer class="text-center mt-4 py-3" style="background-color: rgb(3, 117, 123);">
+        <p>&copy; 2024 ShopEase. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function addToCart(productName, price) {
+            // Get the existing cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Add the selected product to the cart
+            cart.push({ productName: productName, price: price });
+
+            // Update localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Show the alert message
+            let alert = document.getElementById('itemAddedAlert');
+            $(alert).alert(); // Ensure Bootstrap alert functionality
+            $(alert).show(); // Show the alert
+
+            // Hide the alert message after 3 seconds
+            setTimeout(function() {
+                $(alert).alert('close'); // Hide the alert using Bootstrap
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>

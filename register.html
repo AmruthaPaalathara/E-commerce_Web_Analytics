@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ShopEase</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #eef5f9;
+        }
+
+        footer {
+            background-color: rgb(3, 117, 123);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-sm-5 border rounded bg-light p-5 shadow">
+                <h2>Register</h2>
+                <br>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <select class="form-control" id="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="age" placeholder="Enter your age" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="username" placeholder="Enter a username" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="re-password" placeholder="Re-enter password" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="country" placeholder="Enter your country" required>
+                    </div>
+                    <button type="submit" class="btn" style="background-color: rgb(3,117,123); color: #eef5f9; width:100%; margin-top: 10px;">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-4 py-3" style="background-color: rgb(3, 117, 123);">
+        <p>&copy; 2024 ShopEase. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Check if passwords match
+            if (password !== document.getElementById('re-password').value.trim()) {
+                alert('Passwords do not match.');
+                return;
+            }
+
+            // Store user data in localStorage (for demo purposes)
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            users.push({ username, password });
+            localStorage.setItem('users', JSON.stringify(users));
+
+            // Redirect to login page after registration
+            window.location.href = 'index.html'; // Ensure this path is correct
+        });
+    </script>
+</body>
+
+</html>
