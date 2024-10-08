@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=GTM-TLRH5Q9X"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-TLRH5Q9X"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'GTM-TLRH5Q9X');
+        gtag('config', 'GTM-TLRH5Q9X');
     </script>
 
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BCTP9YRCWJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BCTP9YRCWJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-BCTP9YRCWJ');
-</script>
-    
+        gtag('config', 'G-BCTP9YRCWJ');
+    </script>
+
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TLRH5Q9X');</script>
-<!-- End Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TLRH5Q9X');</script>
+    <!-- End Google Tag Manager -->
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
@@ -38,6 +42,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         body {
             background-color: #f4f4f9;
         }
+
         .login-container {
             max-width: 400px;
             margin: auto;
@@ -47,14 +52,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 100px;
         }
+
         .login-container h2 {
             margin-bottom: 20px;
         }
+
         .login-container button {
             background-color: rgb(3, 117, 123);
             border: none;
             color: #fff;
         }
+
         .login-container .error {
             color: red;
             display: none;
@@ -63,21 +71,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 
-    
+
 <body>
 
     <script>
         gtag('event', 'screen_view', {
-        'app_name': 'ShopEase',
-        'screen_name': 'index'
-      });
-    </script> 
+            'app_name': 'ShopEase',
+            'screen_name': 'index'
+        });
+    </script>
 
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLRH5Q9X"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLRH5Q9X" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <div class="container login-container">
         <h2>Login</h2>
         <form id="loginForm" class="form_login">
@@ -91,29 +99,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <button type="submit" class="btn" style="margin-left: 150px;color: #f4f4f9;">Login</button>
             <div>
-                <a href="register.html" style="text-decoration: none;color: black;margin-left: 50px;">Don't have an account? Register</a>
+                <a href="register.html" style="text-decoration: none;color: black;margin-left: 50px;">Don't have an
+                    account? Register</a>
             </div>
             <div class="error" id="error-message">Invalid username or password.</div>
         </form>
     </div>
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
             event.preventDefault();
-            
+
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value.trim();
-            
+
             // Debugging
             console.log(`Username: ${username}`);
             console.log(`Password: ${password}`);
-            
+
             // Retrieve user data from localStorage
             const users = JSON.parse(localStorage.getItem('users')) || [];
             console.log(`Stored Users: ${JSON.stringify(users)}`);
-            
+
             // Check for valid credentials
             const user = users.find(user => user.username === username && user.password === password);
-            
+
             if (user) {
                 // Redirect to the home page
                 window.location.href = 'home.html'; // Ensure this path is correct
@@ -124,4 +133,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
     </script>
 </body>
+
 </html>

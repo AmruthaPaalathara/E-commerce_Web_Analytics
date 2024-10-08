@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GTM-TLRH5Q9X"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-TLRH5Q9X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'GTM-TLRH5Q9X');
-</script>
+        gtag('config', 'GTM-TLRH5Q9X');
+    </script>
 
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TLRH5Q9X');</script>
-<!-- End Google Tag Manager -->
-    
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TLRH5Q9X');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopEase - Your Favorite Online Store</title>
@@ -28,36 +32,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         body {
             background-color: #f4f4f9;
         }
+
         .navbar {
             background-color: rgb(3, 117, 123);
         }
+
         .navbar a {
             color: white !important;
         }
+
         footer {
             background-color: rgb(3, 117, 123);
             color: white;
         }
+
         .product-card {
             margin-bottom: 20px;
         }
+
         .alert {
             position: fixed;
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 1050; /* Ensure it appears above other content */
-            display: none; /* Hidden by default */
+            z-index: 1050;
+            /* Ensure it appears above other content */
+            display: none;
+            /* Hidden by default */
         }
     </style>
 </head>
+
 <body>
 
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLRH5Q9X"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLRH5Q9X" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="index.html">ShopEase</a>
@@ -68,6 +80,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="cart.html">Cart</a>
+                    <script>
+                        gtag("event", "view_item", {
+                            currency: "Rupee",
+                            value: 30.03,
+                            items: [
+                                {
+                                    item_id: "SKU_12345",
+                                    item_name: "Stan and Friends Tee",
+                                    affiliation: "ShopEase",
+                                    coupon: "SUMMER_FUN",
+                                    discount: 2.22,
+                                    index: 0,
+                                    item_brand: "Google",
+                                    item_category: "Apparel",
+                                    item_category2: "Adult",
+                                    item_category3: "Shirts",
+                                    item_category4: "Crew",
+                                    item_category5: "Short sleeve",
+                                    item_list_id: "related_products",
+                                    item_list_name: "Related Products",
+                                    item_variant: "green",
+                                    location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
+                                    price: 10.01,
+                                    quantity: 3
+                                }
+                            ]
+                        });
+                    </script>
                 </li>
             </ul>
         </div>
@@ -89,7 +129,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="card-body">
                         <h5 class="card-title">Blazers</h5>
                         <p class="card-text">High-quality product. Black colour</p>
-                        <button class="btn btn-primary" onclick="addToCart('Blazers', 800)" style="background-color: rgb(3, 117, 123); border: rgb(3, 117, 123); color: #eef5f9;">Add to Cart</button>
+                        <button class="btn btn-primary" onclick="addToCart('Blazers', 800)"
+                            style="background-color: rgb(3, 117, 123); border: rgb(3, 117, 123); color: #eef5f9;">Add to
+                            Cart</button>
                     </div>
                 </div>
             </div>
@@ -100,35 +142,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="card-body">
                         <h5 class="card-title">Long Skirt</h5>
                         <p class="card-text">Grey colour polyester long skirt</p>
-                        <button class="btn btn-primary" onclick="addToCart('Long Skirt', 400)" style="background-color: rgb(3, 117, 123); border: rgb(3, 117, 123); color: #eef5f9;">Add to Cart</button>
-                        <script>
-                            gtag("event", "select_item", {
-                                item_list_id: "related_products",
-                                item_list_name: "Related products",
-                                items: [
-                                {
-                                    item_id: "SKU_12345",
-                                    item_name: "Stan and Friends Tee",
-                                    affiliation: "Google Merchandise Store",
-                                    coupon: "SUMMER_FUN",
-                                    discount: 2.22,
-                                    index: 0,
-                                    item_brand: "Google",
-                                    item_category: "Apparel",
-                                    item_category2: "Adult",
-                                    item_category3: "Shirts",
-                                    item_category4: "Crew",
-                                    item_category5: "Short sleeve",
-                                    item_list_id: "related_products",
-                                    item_list_name: "Related Products",
-                                    item_variant: "green",
-                                    location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
-                                    price: 10.01,
-                                    quantity: 3
-                                }
-                                ]
-                            });
-                        </script>
+                        <button class="btn btn-primary" onclick="addToCart('Long Skirt', 400)" id = "addtocart" style="background-color: rgb(3, 117, 123); border: rgb(3, 117, 123); color: #eef5f9;">Add to Cart</button>
+                        
                     </div>
                 </div>
             </div>
@@ -139,7 +154,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="card-body">
                         <h5 class="card-title">Frock</h5>
                         <p class="card-text">Printed short frock</p>
-                        <button class="btn btn-primary" onclick="addToCart('Frock', 500)" style="background-color: rgb(3, 117, 123); border: rgb(3, 117, 123); color: #eef5f9;">Add to Cart</button>
+                        <button class="btn btn-primary" onclick="addToCart('Frock', 500)"
+                            style="background-color: rgb(3, 117, 123); border: rgb(3, 117, 123); color: #eef5f9;">Add to
+                            Cart</button>
                     </div>
                 </div>
             </div>
@@ -150,7 +167,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="container download-section text-center">
         <h2>Download Our Product Catalog</h2>
         <p>For more details about our products, download our product catalog in PDF format.</p>
-        <a href="product_catalogue.html" class="btn" style="background-color: rgb(3, 117, 123); border: rgb(3, 117, 123); color: #eef5f9;" download>Download Product Catalog</a>
+        <a href="product_catalogue.html" class="btn"
+            style="background-color: rgb(3, 117, 123); border: rgb(3, 117, 123); color: #eef5f9;" download>Download
+            Product Catalog</a>
     </section>
 
     <!-- Product Review Video Section -->
@@ -182,6 +201,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
+        //add to cart
         function addToCart(productName, price) {
             // Get the existing cart from localStorage
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -198,7 +218,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             $(alert).show(); // Show the alert
 
             // Hide the alert message after 3 seconds
-            setTimeout(function() {
+            setTimeout(function () {
                 $(alert).alert('close'); // Hide the alert using Bootstrap
             }, 3000);
         }
@@ -206,35 +226,105 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!--Google tag manager custom events-->
     <script>
+        //view_item
         gtag("event", "view_item_list", {
-  item_list_id: "related_products",
-  item_list_name: "Related products",
-  items: [
-    {
-      item_id: "SKU_12345",
-      item_name: "Black Blazers",
-      affiliation: "ShopEase",
-      coupon: "SUMMER_FUN",
-      discount: 2.22,
-      index: 0,
-      item_brand: "ShopEase",
-      item_category: "Apparel",
-      item_category2: "Adult",
-      item_category3: "Shirts",
-      item_category4: "Crew",
-      item_category5: "Short sleeve",
-      item_list_id: "related_products",
-      item_list_name: "Related Products",
-      item_variant: "bloack",
-      location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
-      price: 800,
-      quantity: 3
-    }
-  ]
-});
+            item_list_id: "related_products",
+            item_list_name: "Related products",
+            items: [
+                {
+                    item_id: "SKU_12345",
+                    item_name: "Black Blazers",
+                    affiliation: "ShopEase",
+                    coupon: "SUMMER_FUN",
+                    discount: 2.22,
+                    index: 0,
+                    item_brand: "ShopEase",
+                    item_category: "Apparel",
+                    item_category2: "Adult",
+                    item_category3: "Shirts",
+                    item_category4: "Crew",
+                    item_category5: "Short sleeve",
+                    item_list_id: "related_products",
+                    item_list_name: "Related Products",
+                    item_variant: "bloack",
+                    location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
+                    price: 800,
+                    quantity: 3
+                }
+            ]
+        });
     </script>
-    
-    
-    
+
+<script>
+    //select item
+    gtag("event", "select_item", {
+        item_list_id: "related_products",
+        item_list_name: "Related products",
+        items: [
+            {
+                item_id: "SKU_12345",
+                item_name: "Lomg Skirt",
+                affiliation: "Google Merchandise Store",
+                coupon: "SUMMER_FUN",
+                discount: 2.22,
+                index: 0,
+                item_brand: "ShopEase",
+                item_category: "Apparel",
+                item_category2: "Adult",
+                item_category3: "Shirts",
+                item_category4: "Crew",
+                item_category5: "Short sleeve",
+                item_list_id: "related_products",
+                item_list_name: "Related Products",
+                item_variant: "green",
+                location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
+                price: 10.01,
+                quantity: 3
+            }
+        ]
+    });
+</script>
+
+    <script>
+        document.getElementById("addtocart").addEventListener("click", function () {
+            gtag("event", "select_item", {
+                // This purchase event uses a different transaction ID
+                // from the previous purchase event so Analytics
+                // doesn't deduplicate the events.
+                // Learn more: https://support.google.com/analytics/answer/12313109
+                transaction_id: "T_12345_2",
+                value: 30.03,
+                tax: 4.90,
+                shipping: 2000,
+                currency: "Rupee",
+                coupon: "SUMMER_SALE",
+                items: [
+                    {
+                        item_id: "SKU_12345",
+                        item_name: "Stan and Friends Tee",
+                        affiliation: "ShopEase",
+                        coupon: "SUMMER_FUN",
+                        discount: 2.22,
+                        index: 0,
+                        item_brand: "ShopEase",
+                        item_category: "Apparel",
+                        item_category2: "Adult",
+                        item_category3: "Shirts",
+                        item_category4: "Crew",
+                        item_category5: "Short sleeve",
+                        item_list_id: "related_products",
+                        item_list_name: "Related Products",
+                        item_variant: "green",
+                        location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
+                        price: 10.01,
+                        quantity: 3
+                    }]
+            });
+        });
+    </script>
+
+
+
 </body>
+
 </html>
