@@ -105,20 +105,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             let cartItemsList = document.getElementById('cart-items');
             let totalAmountDisplay = document.getElementById('total-amount');
 
-            // Function to display cart items and calculate total amount
-            function displayCartItems(items) {
+           // Function to display cart items and calculate total amount
+           function displayCartItems(items) {
                 if (cartItemsList) {
                     cartItemsList.innerHTML = ''; // Clear previous items
                     let total = 0;
-                    items.forEach(item => {
+                    items.forEach((item, index) => {
                         let listItem = document.createElement('li');
-                        listItem.textContent = `${item.productName} - $${item.price}`;
+                        listItem.classList.add('list-group-item', 'cart-item');
+
+                        let itemText = document.createElement('span');
+                        itemText.textContent = `${item.productName} - $${item.price}`;
+
+                        let deleteButton = document.createElement('button');
+                        deleteButton.textContent = 'Delete';
+                        deleteButton.classList.add('delete-btn');
+                        deleteButton.dataset.index = index; // Attach index for deletion
+
+                        // Append text and delete button to the list item
+                        listItem.appendChild(itemText);
+                        listItem.appendChild(deleteButton);
                         cartItemsList.appendChild(listItem);
+
                         total += item.price; // Calculate total
                     });
                     totalAmountDisplay.textContent = `Total Amount: $${total}`; // Update total display
                 }
             }
+
+            // Function to delete an item from the cart
+            function deleteCartItem(index) {
+                cart.splice(index, 1); // Remove the item from the array
+                localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+                displayCartItems(cart); // Refresh the cart display
+            }
+
+            // Add event listener for delete buttons
+            cartItemsList.addEventListener('click', function(event) {
+                if (event.target.classList.contains('delete-btn')) {
+                    const itemIndex = event.target.dataset.index;
+                    deleteCartItem(itemIndex); // Delete the item
+                }
+            });
 
             // Display all cart items initially
             displayCartItems(cart);
