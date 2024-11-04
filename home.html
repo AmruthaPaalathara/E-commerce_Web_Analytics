@@ -60,6 +60,27 @@
             display: none;
             /* Hidden by default */
         }
+
+         /* Search bar styling */
+         .search-bar {
+            max-width: 300px;
+            margin: 0 auto;
+            display: flex;
+            
+        }
+        #search-input {
+            width: 200px; /* Narrower width for the search input */
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            
+        }
+        #search-button {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            background-color: rgb(3,117,123); 
+            color: #eef5f9;
+        }
+
     </style>
 </head>
 
@@ -118,6 +139,12 @@
         <h1>Welcome to ShopEase!</h1>
         <p>Your one-stop destination for the best products.</p>
     </header>
+
+    <!-- Styled Search Bar -->
+    <div class="search-bar mt-3">
+        <input type="text" id="search-input" class="form-control" placeholder="Search for products">
+        <button id="search-button" class="btn btn-primary">Search</button>
+    </div>
 
     <!-- Product Section -->
     <section class="container mt-4">
@@ -322,6 +349,27 @@
             });
         });
     </script>
+
+<script>
+    document.getElementById("search-button").addEventListener("click", function () {
+        const searchTerm = document.getElementById("search-input").value.toLowerCase();
+
+        // Select all product cards
+        const productCards = document.querySelectorAll(".product-card");
+
+        productCards.forEach(card => {
+            // Get the product name from the card title
+            const productName = card.querySelector(".card-title").textContent.toLowerCase();
+
+            // Check if the product name includes the search term
+            if (productName.includes(searchTerm)) {
+                card.style.display = "block"; // Show the matching product
+            } else {
+                card.style.display = "none"; // Hide the non-matching product
+            }
+        });
+    });
+</script>
 
 
 
